@@ -6,4 +6,4 @@ Las herramientas necesarias para desarrollar este contenido son:
 
 * Editor de texto
 * Navegador web
-* [Bootstrap](http://getbootstrap.com/)]
+* [Bootstrap](http://getbootstrap.com/)
