@@ -4,6 +4,7 @@ En este tutorial vamos a ver los conceptos básicos de Git.
 
 Las herramientas para desarrollar este contenido son:
 
+* [Atom](http://atom.io)
 * [Git](https://git-scm.com)
 * [GitKraken](http://www.gitkraken.com)
 * Explicación de [`git-flow`](http://danielkummer.github.io/git-flow-cheatsheet/).
@@ -57,4 +58,14 @@ git config --global user.email johndoe@example.com
 git config --global core.editor vim
 # En windows
 git config --global core.editor "'C:/Program Files/Notepad++/notepad++.exe' -multiInst -nosession"
+```
+
+## Comandos básicos
+```bash
+git clone
+git add .
+git commit -m 'Mensaje'
+git push
+git pull
+git merge
 ```
