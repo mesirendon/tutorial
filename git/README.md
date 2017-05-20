@@ -6,9 +6,12 @@ Las herramientas para desarrollar este contenido son:
 
 * [Git](https://git-scm.com)
 * [GitKraken](http://www.gitkraken.com)
+* Explicación de [`git-flow`](http://danielkummer.github.io/git-flow-cheatsheet/).
+
+## Concepto
+Git es un sistema de control de versiones distribuido libre y de código abierto, diseñado para gestionar versiones de software en equipos de diversos tamaños.
 
 ## Instalación en Windows
-
 * Descargar Git para su arquitectura (32 o 64 bits).
 * Instalar Git Bash
   * Ejecutar
@@ -40,7 +43,16 @@ Las herramientas para desarrollar este contenido son:
   * `git clone git@github.com:mesirendon/tutorial.git`
 
 ## Instalación en Linux
-
 ```bash
 $ sudo apt-get install git-core
+```
+
+## Configuración
+```bash
+git config --global user.name "John Doe"
+git config --global user.email johndoe@example.com
+# En Linux
+git config --global core.editor vim
+# En windows
+git config --global core.editor "'C:/Program Files/Notepad++/notepad++.exe' -multiInst -nosession"
 ```
