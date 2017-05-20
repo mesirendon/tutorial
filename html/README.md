@@ -11,4 +11,3 @@ Las herramientas necesarias para desarrollar este contenido son:
 ## Material
 
 * Material de CSS en [Plunker](https://plnkr.co/edit/nxZ1bNGV53zhGWB0cYCx?p=preview).
-* Explicación de [`git-flow`](http://danielkummer.github.io/git-flow-cheatsheet/).
