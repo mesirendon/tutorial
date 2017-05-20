@@ -11,6 +11,8 @@ Las herramientas para desarrollar este contenido son:
 ## Concepto
 Git es un sistema de control de versiones distribuido libre y de código abierto, diseñado para gestionar versiones de software en equipos de diversos tamaños.
 
+![Zones](https://git-scm.com/book/en/v2/images/areas.png)
+
 ## Instalación en Windows
 * Descargar Git para su arquitectura (32 o 64 bits).
 * Instalar Git Bash
