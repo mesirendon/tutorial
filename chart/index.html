@@ -1,0 +1,76 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8">
+		<title>Chart</title>
+		<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+		<script src="https://d3js.org/d3.v4.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<link rel="stylesheet" href="style.css" type="text/css" media="screen" charset="utf-8">
+	</head>
+	<body>
+			<div class="container">
+				<div class="page-header">
+					<h1>Desplazamiento de Víctimas</h1>
+				</div>
+				<div class="jumbotron">
+					<h1>Caso Bogotá</h1>
+					<svg width="1050" height="500"></svg>
+				</div>
+			</div>
+		<script type="text/javascript" charset="utf-8">
+var svg = d3.select("svg"),
+	margin = {top: 20, right: 20, bottom: 30, left: 40},
+	width = +svg.attr("width") - margin.left - margin.right,
+	height = +svg.attr("height") - margin.top - margin.bottom;
+
+var x = d3.scaleBand().rangeRound([0, width]).padding(0.1),
+	y = d3.scaleLinear().rangeRound([height, 0]);
+
+var g = svg.append("g")
+.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+d3.csv("desplazamiento-bogota.csv", function(d){
+	d['PERSONAS EXPULSADAS'] = +d['PERSONAS EXPULSADAS'];
+	return d
+}, function(error, data) {
+	if (error) throw error;
+
+	x.domain(data.map(function(d) { return d.VIGENCIA; }));
+	y.domain([0, d3.max(data, function(d) { return d['PERSONAS EXPULSADAS']; })]);
+
+	g.append("g")
+		.attr("class", "axis axis--x")
+		.attr("transform", "translate(0," + height + ")")
+		.call(d3.axisBottom(x));
+
+	g.append("g")
+		.attr("class", "axis axis--y")
+		.call(d3.axisLeft(y).ticks(10));
+
+	g.selectAll(".bar")
+		.data(data)
+		.enter().append("rect")
+		.attr("class", "bar")
+		.attr("x", function(d) { return x(d.VIGENCIA); })
+		.attr("y", function(d) { return y(d['PERSONAS EXPULSADAS']); })
+		.attr("width", x.bandwidth())
+		.attr("height", function(d) { return height - y(d['PERSONAS EXPULSADAS']); });
+
+	g.append("text")
+		.attr("transform", "rotate(-90)")
+		.attr("y", 7)
+		.attr("x",0 - (height / 2))
+		.attr("dy", "1em")
+		.style("text-anchor", "middle")
+		.text("Cantidad");
+
+	svg.append("text")
+		.attr("transform", "translate(" + (width/2) + " ," + (height + margin.top + 30) + ")")
+		.style("text-anchor", "middle")
+		.text("Año");
+});
+		</script>
+	</body>
+</html>
